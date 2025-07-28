@@ -2,16 +2,15 @@
 
 let
   baseApp = pkgs.flutter.buildFlutterApplication {
-    pname = "glfos_welcome_screen";
-    version = "0.0.3";
-
-    # Fetch your project source
-        src = pkgs.fetchFromGitHub {
-          owner = "imikado";
-          repo = "glfos-welcome-screen";
-          rev = "1.0.12";
-          sha256 = "0piqdp1rswv6b4bqfp7475kd5z96kvx5kwhiqdjgh4r0q4xzn30a"; # Get via nix-prefetch-url or nix build error
-        };
+ pname = "glfos_welcome_screen";
+    version = "main";  # Utilisez la même version que dans le flake.nix
+    
+    src = fetchFromGitHub {
+      owner = "Gaming-Linux-FR";
+      repo = "glfos-welcome-screen";
+      rev = "main"; 
+      sha256 = lib.fakeSha256;  
+    };
 
     flutterChannel = "stable";  # Can be "beta", "master", etc.
 
